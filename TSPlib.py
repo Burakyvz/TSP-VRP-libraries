@@ -33,8 +33,6 @@ def nearest_neighbor(nodes, origin, d):
     return tour, tour_length
 
 
-# In[3]:
-
 
 def savings(nodes, origin, d):
     '''
@@ -53,7 +51,6 @@ def savings(nodes, origin, d):
         
     # Define a priority queue dictionary to get a pair of nodes (i,j) which yields
     # the maximum savings
-    #pq = pqdict(savings, reverse = True)
     sorted_savings = sorted(savings.items(), key=lambda item: item[1])
     # Merge subtours until obtaining a TSP tour
     while len(tours) > 1:
@@ -92,8 +89,6 @@ def savings(nodes, origin, d):
     # Return the resulting tour and its length as a tuple
     return tour, tour_length
 
-
-# In[4]:
 
 
 def two_opt(tour, tour_length, d):
@@ -140,13 +135,11 @@ def two_opt(tour, tour_length, d):
     return best_tour, best_tour_length
 
 
-# In[1]:
-
 
 def greedy_two_opt(tour, tour_length, d):
     '''
     Improves a given TSP solution using the Greedy 2-opt algorithm.
-    It is a general function which can solve asymmetric and symmetric matrices. 
+    It is a general function that can solve asymmetric and symmetric matrices. 
     '''
     current_tour, current_tour_length = tour, tour_length 
     best_tour, best_tour_length = current_tour, current_tour_length 
@@ -169,7 +162,7 @@ def greedy_two_opt(tour, tour_length, d):
                 y = i+1
                 for a in range(j):
                     asm_sum = round(d[current_tour[y]][current_tour[x]]     # with the added last two codes we can
-                                  - d[current_tour[x]][current_tour[y]], 2) # use this in also asymmetric matrixs
+                                  - d[current_tour[x]][current_tour[y]], 2) # use this also for asymmetric matrix
                                 
                 difference += asm_sum
                 print('Cost difference due to swapping', current_tour[i], 'and',
